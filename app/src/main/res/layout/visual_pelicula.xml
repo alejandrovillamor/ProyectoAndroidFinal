@@ -23,8 +23,8 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <LinearLayout
-            android:layout_width="359dp"
-            android:layout_height="226dp"
+            android:layout_width="370dp"
+            android:layout_height="345dp"
             android:layout_marginTop="24dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +35,45 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView12"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/textView8"
+                    app:srcCompat="@android:drawable/btn_star_big_off"
+                    tools:layout_editor_absoluteY="218dp" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView13"
+                    app:srcCompat="@android:drawable/btn_star_big_off"
+                    tools:layout_editor_absoluteY="218dp" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView9"
+                    app:srcCompat="@android:drawable/btn_star_big_off"
+                    tools:layout_editor_absoluteY="218dp" />
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@android:drawable/btn_star_big_off"
+                    tools:layout_editor_absoluteY="218dp" />
 
                 <ImageView
                     android:id="@+id/imageView3"
@@ -70,6 +109,29 @@
                     android:text="Ficha Tecnica"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView14"
+                    app:srcCompat="@android:drawable/btn_star_big_off"
+                    tools:layout_editor_absoluteY="218dp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Valoración"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button6" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 

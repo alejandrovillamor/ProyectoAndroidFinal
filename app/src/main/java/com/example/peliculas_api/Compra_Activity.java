@@ -4,25 +4,30 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.View;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class Compra_Activity extends AppCompatActivity {
+
+    ImageView flecha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inicio);
+        setContentView(R.layout.compra);
 
-        final Handler handler = new Handler();
-        // SetTimeOut - setInterval
-        handler.postDelayed(new Runnable() {
+        flecha = (ImageView) findViewById(R.id.idFlechac);
+
+        flecha.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
+            public void onClick(View view) {
                 Intent screenChanger = new Intent(getBaseContext(),
                         MainActivity2.class
                 );
                 startActivity(screenChanger);
             }
-        }, 4000);
+        });
+
+
     }
 }

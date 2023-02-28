@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/idPelicula"
             android:layout_width="193dp"
             android:layout_height="46dp"
             android:layout_marginTop="220dp"
@@ -23,7 +23,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/idCine"
             android:layout_width="194dp"
             android:layout_height="47dp"
             android:layout_marginTop="24dp"
@@ -33,11 +33,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/idEntradas"
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/idEntradas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -46,7 +46,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintTop_toBottomOf="@+id/idPelicula" />
 
         <LinearLayout
             android:id="@+id/linearLayout"

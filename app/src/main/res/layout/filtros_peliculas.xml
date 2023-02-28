@@ -22,6 +22,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <LinearLayout
+            android:id="@+id/linearLayout3"
             android:layout_width="400dp"
             android:layout_height="575dp"
             android:orientation="vertical"
@@ -105,6 +106,7 @@
                             app:layout_constraintVertical_bias="0.0" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
@@ -149,6 +151,18 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/idFlecha"
+            android:layout_width="52dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:srcCompat="@drawable/flecha_correcta" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

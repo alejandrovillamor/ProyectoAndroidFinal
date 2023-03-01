@@ -33,7 +33,7 @@
                     app:srcCompat="@drawable/flecha_correcta" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/idImgPelicula"
                     android:layout_width="113dp"
                     android:layout_height="113dp"
                     android:layout_marginTop="8dp"
@@ -67,7 +67,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/idImgPelicula" />
 
                 <TextView
                     android:id="@+id/idTitulo"
@@ -81,7 +81,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.012"
                     app:layout_constraintStart_toEndOf="@+id/textView7"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/idImgPelicula" />
 
                 <TextView
                     android:id="@+id/textView9"
@@ -194,7 +194,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/idDuracion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -226,7 +226,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/textView19"
-                    app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                    app:layout_constraintTop_toBottomOf="@+id/idDuracion" />
 
                 <TextView
                     android:id="@+id/textView21"

@@ -1,24 +1,88 @@
 package com.example.peliculas_api.view;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.peliculas_api.R;
+import com.example.peliculas_api.entities.Peliculas;
+
+import java.util.ArrayList;
+
 public class LstPeliculasAdapter extends RecyclerView.Adapter<LstPeliculasAdapter.ViewHolder>{
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+    private ArrayList<Peliculas> datospeliculas;
+    private Context context;
+
+    public LstPeliculasAdapter(Context context){
+        this.context = context;
+        datospeliculas = new ArrayList<>();
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ficha_tecnica,parent,false);
+        return new ViewHolder(view);
+    }
 
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+         Peliculas pelicula = datospeliculas.get(position);
+         holder.idTitulo.setText(pelicula.getName());
+         holder.idTituloOriginal.setText(pelicula.getName());
+         holder.idDireccion.setText(pelicula.getDirector());
+         holder.idPais.setText(pelicula.getPais());
+         holder.idAno.setText(pelicula.getAño());
+         holder.idDuracion.setText(pelicula.getDuracion());
+         holder.idGenero.setText(pelicula.getGenero());
+         holder.idCalificacion.setText(pelicula.getClasificacion());
+         holder.idReparto.setText(pelicula.getInterpretes());
+         holder.idProductora.setText(pelicula.getDistribuidora());
+         holder.idTrailer.setText(pelicula.getTrailer());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return datospeliculas.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+       private ImageView idImgPelicula;
+       private TextView idTitulo;
+       private TextView idTituloOriginal;
+       private TextView idDireccion;
+       private TextView idPais;
+       private TextView idAno;
+       private TextView idDuracion;
+       private TextView idGenero;
+       private TextView idCalificacion;
+       private TextView idReparto;
+       private TextView idProductora;
+       private TextView idTrailer;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+
+            idImgPelicula = itemView.findViewById(R.id.idImgPelicula);
+            idTitulo = itemView.findViewById(R.id.idTitulo);
+            idTituloOriginal= itemView.findViewById(R.id.idTituloOriginal);
+            idDireccion = itemView.findViewById(R.id.idDireccion);
+            idPais = itemView.findViewById(R.id.idPais);
+            idAno = itemView.findViewById(R.id.idAno);
+            idDuracion = itemView.findViewById(R.id.idDuracion);
+            idGenero = itemView.findViewById(R.id.idGenero);
+            idCalificacion = itemView.findViewById(R.id.idCalificacion);
+            idReparto = itemView.findViewById(R.id.idReparto);
+            idProductora = itemView.findViewById(R.id.idProductora);
+            idTrailer = itemView.findViewById(R.id.idTrailer);
+
+        }
     }
 }

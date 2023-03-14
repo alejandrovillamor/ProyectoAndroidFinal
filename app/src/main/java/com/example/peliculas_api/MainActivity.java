@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent screenChanger = new Intent(getBaseContext(),
-                        Ficha_tecnica.class
+                        MainActivity2.class
                 );
                 startActivity(screenChanger);
             }

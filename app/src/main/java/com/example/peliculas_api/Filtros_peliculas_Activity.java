@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Filtros_peliculas_Activity extends AppCompatActivity {
 
     ImageView flecha;
+    EditText filtro;
+    Button buscar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,5 +33,32 @@ public class Filtros_peliculas_Activity extends AppCompatActivity {
             }
         });
 
+        filtro = (EditText) findViewById(R.id.idFiltro);
+        buscar = (Button) findViewById(R.id.idBtnBuscar);
+
+
+        buscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent screenChanger = new Intent(getBaseContext(),
+                        lstPeliculas.class
+                );
+                Bundle filtroBundle = new Bundle();
+                filtroBundle.putString("Filtro",filtro.getText().toString());
+
+                screenChanger.putExtras(filtroBundle);
+
+                startActivity(screenChanger);
+
+            }
+        });
+
+
+
+
+
     }
+
+
 }

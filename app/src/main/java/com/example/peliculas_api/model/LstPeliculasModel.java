@@ -1,12 +1,13 @@
 package com.example.peliculas_api.model;
 
+import com.example.peliculas_api.entities.Index;
 import com.example.peliculas_api.entities.Peliculas;
-import com.example.peliculas_api.entities.PeliculasRespuesta;
 import com.example.peliculas_api.utils.ApiInterface;
 import com.example.peliculas_api.utils.ApiPeliculas;
 import com.example.peliculas_api.view.LstPeliculasContract;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,20 +19,20 @@ public class LstPeliculasModel implements LstPeliculasContract.Model {
     public void lstPeliculasWS(Peliculas pelicula, OnLstPeliculasListener onLstPeliculasListener) {
         ApiInterface apiService = ApiPeliculas.getPeliculas().create(ApiInterface.class);
 
-        Call<PeliculasRespuesta> call = apiService.getPeliculas();
-        call.enqueue(new Callback<PeliculasRespuesta>() {
+        Call<Index> call = apiService.getApi();
+        call.enqueue(new Callback<Index>() {
             @Override
-            public void onResponse(Call<PeliculasRespuesta> call, Response<PeliculasRespuesta> response) {
-                PeliculasRespuesta peliculasRespuesta = response.body();
-                ArrayList<Peliculas> listaPeliculas = peliculasRespuesta.getResults();
+            public void onResponse(Call<Index> call, Response<Index> response) {
+                Index peliculasRespuesta = response.body();
+                ArrayList<Peliculas> listaPeliculas = peliculasRespuesta.getPeliculas();
 
                 onLstPeliculasListener.onSuccess(listaPeliculas);
 
             }
 
             @Override
-            public void onFailure(Call<PeliculasRespuesta> call, Throwable t) {
-                 onLstPeliculasListener.onFailure("Erro en sacar la lista de peliculas");
+            public void onFailure(Call<Index> call, Throwable t) {
+                 onLstPeliculasListener.onFailure(t.getMessage());
             }
         });
     }

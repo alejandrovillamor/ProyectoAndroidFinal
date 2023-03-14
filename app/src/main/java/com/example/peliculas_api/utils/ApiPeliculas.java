@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiPeliculas {
 
     public  static  final  String BASE_URL =
-            "/http://localhost:8080/API-Peliculas/webresources/";
+            "http://localhost:8080/API-Peliculas/webresources/";
 
     private  static Retrofit retrofit = null;
 

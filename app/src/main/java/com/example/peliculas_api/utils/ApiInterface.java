@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 
 public interface ApiInterface {
-    @GET("pelicula")
+    @GET("api")
     Call<PeliculasRespuesta> getPeliculas();
 }

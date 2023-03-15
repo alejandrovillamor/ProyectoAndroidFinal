@@ -15,6 +15,7 @@ public class Filtros_peliculas_Activity extends AppCompatActivity {
     ImageView flecha;
     EditText filtro;
     Button buscar;
+    Button pelicula;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,16 @@ public class Filtros_peliculas_Activity extends AppCompatActivity {
             }
         });
 
+        pelicula = (Button) findViewById(R.id.idMostrarPeli);
+        pelicula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent screenChanger = new Intent(getBaseContext(),
+                        lstPeliculas.class
+                );
+                startActivity(screenChanger);
+            }
+        });
 
 
 

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.peliculas_api.R;
@@ -15,12 +14,12 @@ import com.example.peliculas_api.entities.Peliculas;
 
 import java.util.ArrayList;
 
-public class LstPeliculasAdapter extends RecyclerView.Adapter<LstPeliculasAdapter.ViewHolder>{
+public class Ficha_tecnicaPeliculaAdapter extends RecyclerView.Adapter<Ficha_tecnicaPeliculaAdapter.ViewHolder>{
 
     private ArrayList<Peliculas> datospeliculas;
     private Context context;
 
-    public LstPeliculasAdapter(Context context){
+    public Ficha_tecnicaPeliculaAdapter(Context context){
         this.context = context;
         datospeliculas = new ArrayList<>();
     }

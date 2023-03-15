@@ -1,21 +1,42 @@
 package com.example.peliculas_api;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class lstPeliculas extends AppCompatActivity {
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.peliculas_api.entities.Peliculas;
+import com.example.peliculas_api.presenter.LstPeliculasPresenter;
+import com.example.peliculas_api.view.LstPeliculasContract;
+import com.example.peliculas_api.view.lstPeliculasAdapter;
+
+import java.util.ArrayList;
+
+public class lstPeliculas extends AppCompatActivity implements LstPeliculasContract.View {
 
 
    String texto;
    ImageView flecha;
+   Button fichatecnica;
    String Drama = "Drama";
    String Accion = "Accion";
    String Cinco = "Cinco";
+    ArrayList<Peliculas> lstPeliculas;
+    LstPeliculasPresenter lstPeliculasPresenter;
+    ImageView imgPeli;
+    RecyclerView recyclerPeliculas;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,27 +44,37 @@ public class lstPeliculas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lstpeliculas);
 
+
        Bundle miBundle = this.getIntent().getExtras();
 
        if(miBundle!=null){
            texto = miBundle.getString("Filtro");
            if(texto.equals(Drama)){
+               initComponentes();
+               initPresenter();
+               initData();
+
                Toast.makeText(this, "Peliculas de "+texto, Toast.LENGTH_SHORT).show();
            }
            if(texto.equals(Accion)){
+               initComponentes();
+               initPresenter();
+               initData();
                Toast.makeText(this,"Peliculas de "+texto, Toast.LENGTH_SHORT).show();
            }
            if(texto.equals(Cinco)){
+               initComponentes();
+               initPresenter();
+               initData();
                Toast.makeText(this, "Peliculas con una valoracion"+texto, Toast.LENGTH_SHORT).show();
            }
 
-
-
        }else {
-           Toast.makeText(this, "El dato llego vacio", Toast.LENGTH_SHORT).show();
-       }
+           initComponentes();
+           initPresenter();
+           initData();
 
-        flecha = (ImageView) findViewById(R.id.idFlechalstPelis);
+       }
 
         flecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,5 +86,63 @@ public class lstPeliculas extends AppCompatActivity {
             }
         });
 
+       //initComponentsData();
+
+       /*fichatecnica.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent screenChanger = new Intent(getBaseContext(),
+                       Ficha_tecnica.class
+               );
+               startActivity(screenChanger);
+           }
+       });*/
+
+
+
     }
+    private void initComponentes() {
+        lstPeliculas = new ArrayList<>();
+        imgPeli = findViewById(R.id.idImgPeli);
+        flecha = (ImageView) findViewById(R.id.idFlechalstPelis);
+
+    }
+
+
+    public  void initPresenter(){
+
+        lstPeliculasPresenter = new LstPeliculasPresenter(this);
+    }
+
+    public void initData(){
+
+        lstPeliculasPresenter.lstPeliculas(null);
+    }
+
+    public void initComponentsData() {
+        //fichatecnica = (Button) findViewById(R.id.idFichatecnica);
+    }
+
+    @Override
+    public void successLstPeliculas(ArrayList<Peliculas> lstPeliculas) {
+
+        recyclerPeliculas = (RecyclerView) findViewById(R.id.recyclerViewPelis);
+        recyclerPeliculas.setLayoutManager(new LinearLayoutManager(this));
+
+        lstPeliculasAdapter adapter = new lstPeliculasAdapter(lstPeliculas,this);
+        recyclerPeliculas.setAdapter(adapter);
+
+
+    }
+
+    @Override
+    public void failureLstPeliculas(String err) {
+
+        Toast.makeText(this, err, Toast.LENGTH_LONG).show();
+    }
+
+
+
+
+
 }

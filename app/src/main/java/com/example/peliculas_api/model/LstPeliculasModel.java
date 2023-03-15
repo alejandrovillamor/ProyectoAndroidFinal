@@ -1,5 +1,6 @@
 package com.example.peliculas_api.model;
 
+
 import com.example.peliculas_api.entities.Index;
 import com.example.peliculas_api.entities.Peliculas;
 import com.example.peliculas_api.utils.ApiInterface;
@@ -19,19 +20,19 @@ public class LstPeliculasModel implements LstPeliculasContract.Model {
     public void lstPeliculasWS(Peliculas pelicula, OnLstPeliculasListener onLstPeliculasListener) {
         ApiInterface apiService = ApiPeliculas.getPeliculas().create(ApiInterface.class);
 
-        Call<Index> call = apiService.getApi();
-        call.enqueue(new Callback<Index>() {
+        Call<ArrayList<Index>> call = apiService.getApi();
+        call.enqueue(new Callback<ArrayList<Index>>() {
             @Override
-            public void onResponse(Call<Index> call, Response<Index> response) {
-                Index peliculasRespuesta = response.body();
-                ArrayList<Peliculas> listaPeliculas = peliculasRespuesta.getPeliculas();
+            public void onResponse(Call<ArrayList<Index>> call, Response<ArrayList<Index>> response) {
+                ArrayList<Index> indexRespuesta = response.body();
+                ArrayList<Peliculas> listaPeliculas = indexRespuesta.get(0).getPeliculas();
 
                 onLstPeliculasListener.onSuccess(listaPeliculas);
 
             }
 
             @Override
-            public void onFailure(Call<Index> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Index>> call, Throwable t) {
                  onLstPeliculasListener.onFailure(t.getMessage());
             }
         });

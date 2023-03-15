@@ -12,5 +12,5 @@ import retrofit2.http.GET;
 
 public interface ApiInterface {
     @GET("api")
-    Call<Index> getApi();
+    Call<ArrayList<Index>> getApi();
 }

@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.peliculas_api.entities.Index;
 import com.example.peliculas_api.entities.Peliculas;
 import com.example.peliculas_api.presenter.LstPeliculasPresenter;

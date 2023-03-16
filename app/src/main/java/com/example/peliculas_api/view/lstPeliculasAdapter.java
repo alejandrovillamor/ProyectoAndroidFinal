@@ -11,8 +11,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.peliculas_api.Ficha_tecnica;
 import com.example.peliculas_api.R;
 import com.example.peliculas_api.entities.Peliculas;
@@ -57,6 +55,43 @@ public class lstPeliculasAdapter extends RecyclerView.Adapter<lstPeliculasAdapte
             }
         });
 
+        holder.estrella1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.estrella1.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+        });
+        holder.estrella2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.estrella2.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+        });
+        holder.estrella3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.estrella3.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+        });
+        holder.estrella4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.estrella4.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+        });
+        holder.estrella4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.estrella4.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+        });
+        holder.estrella5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.estrella5.setImageResource(android.R.drawable.btn_star_big_on);
+            }
+        });
+
     }
 
     @Override
@@ -68,12 +103,23 @@ public class lstPeliculasAdapter extends RecyclerView.Adapter<lstPeliculasAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView idImgPelicula;
         private  Button fichatecnica;
+        private ImageView estrella1;
+        private ImageView estrella2;
+        private ImageView estrella3;
+        private ImageView estrella4;
+        private ImageView estrella5;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             idImgPelicula = (ImageView) itemView.findViewById(R.id.idImgPeli);
             fichatecnica = (Button) itemView.findViewById(R.id.idFichatecnica);
+            estrella1 = (ImageView) itemView.findViewById(R.id.estrella1);
+            estrella2 = (ImageView) itemView.findViewById(R.id.estrella2);
+            estrella3 = (ImageView) itemView.findViewById(R.id.estrella3);
+            estrella4 = (ImageView) itemView.findViewById(R.id.estrella4);
+            estrella5 = (ImageView) itemView.findViewById(R.id.estrella5);
+
 
         }
     }

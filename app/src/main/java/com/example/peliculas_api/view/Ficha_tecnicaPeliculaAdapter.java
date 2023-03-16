@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.peliculas_api.R;
 import com.example.peliculas_api.entities.Peliculas;
-import com.squareup.picasso.Picasso;
+
 
 import java.util.ArrayList;
 

@@ -28,7 +28,6 @@ public class lstPeliculas extends AppCompatActivity implements LstPeliculasContr
 
    String texto;
    ImageView flecha;
-   Button fichatecnica;
    String Drama = "Drama";
    String Accion = "Accion";
    String Cinco = "Cinco";
@@ -63,20 +62,6 @@ public class lstPeliculas extends AppCompatActivity implements LstPeliculasContr
             }
         });
 
-       //initComponentsData();
-
-       /*fichatecnica.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent screenChanger = new Intent(getBaseContext(),
-                       Ficha_tecnica.class
-               );
-               startActivity(screenChanger);
-           }
-       });*/
-
-
-
     }
     private void initComponentes() {
         lstPeliculas = new ArrayList<>();
@@ -96,9 +81,6 @@ public class lstPeliculas extends AppCompatActivity implements LstPeliculasContr
         lstPeliculasPresenter.lstPeliculas(null);
     }
 
-    public void initComponentsData() {
-        //fichatecnica = (Button) findViewById(R.id.idFichatecnica);
-    }
 
     @Override
     public void successLstPeliculas(ArrayList<Index> lstIndex) {
@@ -107,6 +89,8 @@ public class lstPeliculas extends AppCompatActivity implements LstPeliculasContr
             texto = miBundle.getString("Filtro");
             if(texto.equals(Drama)){
                 lstPeliculas = lstIndex.get(0).getPeliculasDrama();
+
+
 
                 Toast.makeText(this, "Peliculas de "+texto, Toast.LENGTH_SHORT).show();
             }
@@ -127,7 +111,11 @@ public class lstPeliculas extends AppCompatActivity implements LstPeliculasContr
         recyclerPeliculas.setLayoutManager(new LinearLayoutManager(this));
 
         lstPeliculasAdapter adapter = new lstPeliculasAdapter(lstPeliculas,this);
+
+
         recyclerPeliculas.setAdapter(adapter);
+
+
 
 
 

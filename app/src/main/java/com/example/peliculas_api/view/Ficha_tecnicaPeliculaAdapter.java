@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.peliculas_api.R;
 import com.example.peliculas_api.entities.Peliculas;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -33,11 +34,11 @@ public class Ficha_tecnicaPeliculaAdapter extends RecyclerView.Adapter<Ficha_tec
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
          Peliculas pelicula = datospeliculas.get(position);
-         holder.idTitulo.setText(pelicula.getName());
-         holder.idTituloOriginal.setText(pelicula.getName());
+         holder.idTitulo.setText(pelicula.getNombre());
+         holder.idTituloOriginal.setText(pelicula.getNombre());
          holder.idDireccion.setText(pelicula.getDirector());
          holder.idPais.setText(pelicula.getPais());
-         holder.idAno.setText(pelicula.getAño());
+         holder.idAno.setText(pelicula.getAno());
          holder.idDuracion.setText(pelicula.getDuracion());
          holder.idGenero.setText(pelicula.getGenero());
          holder.idCalificacion.setText(pelicula.getClasificacion());
@@ -53,7 +54,7 @@ public class Ficha_tecnicaPeliculaAdapter extends RecyclerView.Adapter<Ficha_tec
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-       private ImageView idImgPelicula;
+
        private TextView idTitulo;
        private TextView idTituloOriginal;
        private TextView idDireccion;
@@ -69,7 +70,6 @@ public class Ficha_tecnicaPeliculaAdapter extends RecyclerView.Adapter<Ficha_tec
         public ViewHolder(View itemView) {
             super(itemView);
 
-            idImgPelicula = itemView.findViewById(R.id.idImgPelicula);
             idTitulo = itemView.findViewById(R.id.idTitulo);
             idTituloOriginal= itemView.findViewById(R.id.idTituloOriginal);
             idDireccion = itemView.findViewById(R.id.idDireccion);
@@ -81,7 +81,6 @@ public class Ficha_tecnicaPeliculaAdapter extends RecyclerView.Adapter<Ficha_tec
             idReparto = itemView.findViewById(R.id.idReparto);
             idProductora = itemView.findViewById(R.id.idProductora);
             idTrailer = itemView.findViewById(R.id.idTrailer);
-
         }
     }
 }

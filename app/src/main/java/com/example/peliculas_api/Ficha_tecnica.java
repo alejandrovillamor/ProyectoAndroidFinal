@@ -2,7 +2,10 @@ package com.example.peliculas_api;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,18 +26,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasContract.View {
 
+
+
     private LstPeliculasPresenter lstPeliculasPresenter;
     private TextView nombre;
     private TextView tituloOriginal;
     private TextView director;
     private TextView pais;
-    private TextView año;
+    private TextView ano;
     private TextView duracion;
     private TextView genero;
     private TextView calificacion;
     private TextView reparto;
     private TextView productora;
     private TextView trailer;
+    ImageView flecha;
+    private Integer id;
 
 
     @Override
@@ -45,6 +52,16 @@ public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasCont
         initComponents();
         initPresenter();
         initData();
+
+        flecha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent screenChanger = new Intent(getBaseContext(),
+                        Filtros_peliculas_Activity.class
+                );
+                startActivity(screenChanger);
+            }
+        });
     }
 
     public void initComponents(){
@@ -52,13 +69,14 @@ public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasCont
         tituloOriginal = findViewById(R.id.idTituloOriginal);
         director = findViewById(R.id.idDireccion);
         pais = findViewById(R.id.idPais);
-        año = findViewById(R.id.idAno);
+        ano = findViewById(R.id.idAno);
         duracion = findViewById(R.id.idDuracion);
         genero = findViewById(R.id.idGenero);
         calificacion = findViewById(R.id.idCalificacion);
         reparto = findViewById(R.id.idReparto);
         productora = findViewById(R.id.idProductora);
         trailer = findViewById(R.id.idTrailer);
+
     }
 
     public  void initPresenter(){
@@ -72,17 +90,23 @@ public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasCont
     @Override
     public void successLstPeliculas(ArrayList<Index> lstIndex) {
         for (Peliculas peliculas: lstIndex.get(0).getPeliculas()) {
-            nombre.setText(peliculas.getName());
-            tituloOriginal.setText(peliculas.getName());
-            director.setText(peliculas.getDirector());
-            pais.setText(peliculas.getPais());
-            año.setText(peliculas.getAño());
-            duracion.setText(peliculas.getDuracion());
-            genero.setText(peliculas.getGenero());
-            calificacion.setText(peliculas.getClasificacion());
-            reparto.setText(peliculas.getInterpretes());
-            productora.setText(peliculas.getDistribuidora());
-            trailer.setText(peliculas.getTrailer());
+            Bundle miBundle = this.getIntent().getExtras();
+            if(miBundle!=null) {
+                id = miBundle.getInt("idPeli");
+                if (id.equals(peliculas.getId_pelicula())) {
+                    nombre.setText(peliculas.getNombre());
+                    tituloOriginal.setText(peliculas.getNombre());
+                    director.setText(peliculas.getDirector());
+                    pais.setText(peliculas.getPais());
+                   // ano.setText(peliculas.getAno());
+                    duracion.setText(peliculas.getDuracion());
+                    genero.setText(peliculas.getGenero());
+                    calificacion.setText(peliculas.getClasificacion());
+                    reparto.setText(peliculas.getInterpretes());
+                    productora.setText(peliculas.getDistribuidora());
+                    trailer.setText(peliculas.getTrailer());
+                }
+            }
         }
 
     }

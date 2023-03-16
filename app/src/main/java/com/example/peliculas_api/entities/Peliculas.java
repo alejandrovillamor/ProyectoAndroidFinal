@@ -26,7 +26,7 @@ public class Peliculas {
     private String musica;
 
     @SerializedName("Ano")
-    private int año;
+    private int ano;
     @SerializedName("Distribuidora")
     private String distribuidora;
     @SerializedName("Comentarios")
@@ -39,22 +39,33 @@ public class Peliculas {
     private int valoracion;
     @SerializedName("Sinopsis")
     private String sinopsis;
-    @SerializedName("Pais")
+    @SerializedName("pais")
     private String pais;
-    @SerializedName("Genero")
+    @SerializedName("genero")
     private String genero;
+
+    @SerializedName("Id_Pelicula")
+    private int id_pelicula;
+
+    public int getId_pelicula() {
+        return id_pelicula;
+    }
+
+    public void setId_pelicula(int id_pelicula) {
+        this.id_pelicula = id_pelicula;
+    }
 
     @Override
     public String toString() {
         return "Peliculas{" +
-                "Nombre='" + nombre + '\'' +
+                "nombre='" + nombre + '\'' +
                 ", duracion='" + duracion + '\'' +
                 ", clasificacion='" + clasificacion + '\'' +
                 ", director='" + director + '\'' +
                 ", interpretes='" + interpretes + '\'' +
                 ", trailer='" + trailer + '\'' +
                 ", musica='" + musica + '\'' +
-                ", año=" + año +
+                ", año=" + ano +
                 ", distribuidora='" + distribuidora + '\'' +
                 ", comentarios='" + comentarios + '\'' +
                 ", presupuesto=" + presupuesto +
@@ -63,6 +74,7 @@ public class Peliculas {
                 ", sinopsis='" + sinopsis + '\'' +
                 ", pais='" + pais + '\'' +
                 ", genero='" + genero + '\'' +
+                ", id_pelicula=" + id_pelicula +
                 '}';
     }
 
@@ -82,8 +94,8 @@ public class Peliculas {
         this.pais = pais;
     }
 
-    public int getAño() {
-        return año;
+    public int getAno() {
+        return ano;
     }
 
     public int getPresupuesto() {
@@ -126,7 +138,7 @@ public class Peliculas {
         return musica;
     }
 
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
 
@@ -138,7 +150,7 @@ public class Peliculas {
         return trailer;
     }
 
-    public void setName(String name) {
+    public void setNombre(String name) {
         this.nombre = name;
     }
 
@@ -166,8 +178,8 @@ public class Peliculas {
         this.musica = musica;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
     public void setDistribuidora(String distribuidora) {

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.peliculas_api.entities.Index;
 import com.example.peliculas_api.entities.Peliculas;
 import com.example.peliculas_api.presenter.LstPeliculasPresenter;
 import com.example.peliculas_api.view.LstPeliculasContract;
@@ -45,36 +46,12 @@ public class lstPeliculas extends AppCompatActivity implements LstPeliculasContr
         setContentView(R.layout.lstpeliculas);
 
 
-       Bundle miBundle = this.getIntent().getExtras();
 
-       if(miBundle!=null){
-           texto = miBundle.getString("Filtro");
-           if(texto.equals(Drama)){
-               initComponentes();
-               initPresenter();
-               initData();
 
-               Toast.makeText(this, "Peliculas de "+texto, Toast.LENGTH_SHORT).show();
-           }
-           if(texto.equals(Accion)){
-               initComponentes();
-               initPresenter();
-               initData();
-               Toast.makeText(this,"Peliculas de "+texto, Toast.LENGTH_SHORT).show();
-           }
-           if(texto.equals(Cinco)){
-               initComponentes();
-               initPresenter();
-               initData();
-               Toast.makeText(this, "Peliculas con una valoracion"+texto, Toast.LENGTH_SHORT).show();
-           }
-
-       }else {
            initComponentes();
            initPresenter();
            initData();
 
-       }
 
         flecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,13 +101,34 @@ public class lstPeliculas extends AppCompatActivity implements LstPeliculasContr
     }
 
     @Override
-    public void successLstPeliculas(ArrayList<Peliculas> lstPeliculas) {
+    public void successLstPeliculas(ArrayList<Index> lstIndex) {
+        Bundle miBundle = this.getIntent().getExtras();
+        if(miBundle!=null){
+            texto = miBundle.getString("Filtro");
+            if(texto.equals(Drama)){
+                lstPeliculas = lstIndex.get(0).getPeliculasDrama();
+
+                Toast.makeText(this, "Peliculas de "+texto, Toast.LENGTH_SHORT).show();
+            }
+            if(texto.equals(Accion)){
+                lstPeliculas = lstIndex.get(0).getPeliculasAccion();
+                Toast.makeText(this,"Peliculas de "+texto, Toast.LENGTH_SHORT).show();
+            }
+            if(texto.equals(Cinco)){
+                lstPeliculas = lstIndex.get(0).getPeliculasMasvotadas();
+                Toast.makeText(this, "Peliculas con una valoracion"+texto, Toast.LENGTH_SHORT).show();
+            }
+
+        }else {
+            lstPeliculas = lstIndex.get(0).getPeliculas();
+        }
 
         recyclerPeliculas = (RecyclerView) findViewById(R.id.recyclerViewPelis);
         recyclerPeliculas.setLayoutManager(new LinearLayoutManager(this));
 
         lstPeliculasAdapter adapter = new lstPeliculasAdapter(lstPeliculas,this);
         recyclerPeliculas.setAdapter(adapter);
+
 
 
     }

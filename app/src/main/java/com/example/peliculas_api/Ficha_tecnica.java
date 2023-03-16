@@ -70,8 +70,8 @@ public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasCont
     }
 
     @Override
-    public void successLstPeliculas(ArrayList<Peliculas> lstPeliculas) {
-        for (Peliculas peliculas: lstPeliculas) {
+    public void successLstPeliculas(ArrayList<Index> lstIndex) {
+        for (Peliculas peliculas: lstIndex.get(0).getPeliculas()) {
             nombre.setText(peliculas.getName());
             tituloOriginal.setText(peliculas.getName());
             director.setText(peliculas.getDirector());

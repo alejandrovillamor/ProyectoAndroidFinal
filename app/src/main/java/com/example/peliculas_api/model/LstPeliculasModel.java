@@ -17,7 +17,7 @@ import retrofit2.Response;
 public class LstPeliculasModel implements LstPeliculasContract.Model {
 
     @Override
-    public void lstPeliculasWS(Peliculas pelicula, OnLstPeliculasListener onLstPeliculasListener) {
+    public void lstPeliculasWS(Index index, OnLstPeliculasListener onLstPeliculasListener) {
         ApiInterface apiService = ApiPeliculas.getPeliculas().create(ApiInterface.class);
 
         Call<ArrayList<Index>> call = apiService.getApi();
@@ -25,9 +25,8 @@ public class LstPeliculasModel implements LstPeliculasContract.Model {
             @Override
             public void onResponse(Call<ArrayList<Index>> call, Response<ArrayList<Index>> response) {
                 ArrayList<Index> indexRespuesta = response.body();
-                ArrayList<Peliculas> listaPeliculas = indexRespuesta.get(0).getPeliculas();
 
-                onLstPeliculasListener.onSuccess(listaPeliculas);
+                onLstPeliculasListener.onSuccess(indexRespuesta);
 
             }
 

@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.peliculas_api.R;
 import com.example.peliculas_api.entities.Peliculas;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -34,11 +35,7 @@ public class lstPeliculasAdapter extends RecyclerView.Adapter<lstPeliculasAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         Peliculas pelicula = datospeliculas.get(position);
 
-        Glide.with(context)
-                .load("drawable/" + pelicula.getImagen())
-                .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(holder.idImgPelicula);
+        Picasso.get().load(pelicula.getImagen()).into(holder.idImgPelicula);
     }
 
     @Override

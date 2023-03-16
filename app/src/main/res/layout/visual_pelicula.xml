@@ -10,8 +10,8 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="370dp"
-            android:layout_height="345dp"
+            android:layout_width="371dp"
+            android:layout_height="448dp"
             android:layout_marginTop="100dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +68,8 @@
 
                 <ImageView
                     android:id="@+id/idImgPeli"
-                    android:layout_width="106dp"
-                    android:layout_height="115dp"
+                    android:layout_width="203dp"
+                    android:layout_height="260dp"
                     android:layout_marginTop="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"

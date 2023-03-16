@@ -4,50 +4,50 @@ import com.google.gson.annotations.SerializedName;
 
 public class Peliculas {
 
- @SerializedName("name")
-    private String name;
+ @SerializedName("Nombre")
+    private String nombre;
 
- @SerializedName("duracion")
+ @SerializedName("Duracion")
  private String duracion;
 
- @SerializedName("clasificacion")
+ @SerializedName("Clasificacion")
  private String clasificacion;
 
- @SerializedName("director")
+ @SerializedName("Director")
  private String director;
 
-    @SerializedName("interpretes")
+    @SerializedName("Interpretes")
     private String interpretes;
 
-    @SerializedName("trailer")
+    @SerializedName("Trailer")
     private String trailer;
 
-    @SerializedName("musica")
+    @SerializedName("Musica")
     private String musica;
 
-    @SerializedName("año")
+    @SerializedName("Ano")
     private int año;
-    @SerializedName("distribuidora")
+    @SerializedName("Distribuidora")
     private String distribuidora;
-    @SerializedName("comentarios")
+    @SerializedName("Comentarios")
     private String comentarios;
-    @SerializedName("presupuesto")
+    @SerializedName("Presupuesto")
     private int presupuesto;
-    @SerializedName("imagen")
+    @SerializedName("Imagen")
     private String imagen;
     @SerializedName("valoracion")
     private int valoracion;
-    @SerializedName("sinopsis")
+    @SerializedName("Sinopsis")
     private String sinopsis;
-    @SerializedName("pais")
+    @SerializedName("Pais")
     private String pais;
-    @SerializedName("genero")
+    @SerializedName("Genero")
     private String genero;
 
     @Override
     public String toString() {
         return "Peliculas{" +
-                "name='" + name + '\'' +
+                "Nombre='" + nombre + '\'' +
                 ", duracion='" + duracion + '\'' +
                 ", clasificacion='" + clasificacion + '\'' +
                 ", director='" + director + '\'' +
@@ -127,7 +127,7 @@ public class Peliculas {
     }
 
     public String getName() {
-        return name;
+        return nombre;
     }
 
     public String getSinopsis() {
@@ -139,7 +139,7 @@ public class Peliculas {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.nombre = name;
     }
 
     public void setDuracion(String duracion) {

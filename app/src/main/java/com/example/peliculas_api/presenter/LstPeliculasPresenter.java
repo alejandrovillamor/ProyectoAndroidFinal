@@ -1,5 +1,6 @@
 package com.example.peliculas_api.presenter;
 
+import com.example.peliculas_api.entities.Index;
 import com.example.peliculas_api.entities.Peliculas;
 import com.example.peliculas_api.model.LstPeliculasModel;
 import com.example.peliculas_api.view.LstPeliculasContract;
@@ -17,13 +18,13 @@ public class LstPeliculasPresenter implements LstPeliculasContract.Presenter {
     }
 
     @Override
-    public void lstPeliculas(Peliculas pelicula) {
+    public void lstPeliculas(Index index) {
         lstPeliculasModel.lstPeliculasWS(null, new
                 LstPeliculasContract.Model.OnLstPeliculasListener() {
                     @Override
-                    public void onSuccess(ArrayList<Peliculas> pelicula) {
-                        if (pelicula != null && pelicula.size() > 0){
-                            view.successLstPeliculas(pelicula);
+                    public void onSuccess(ArrayList<Index> index) {
+                        if (index != null && index.size() > 0){
+                            view.successLstPeliculas(index);
                         }else{
                             view.failureLstPeliculas("Erro en lista de datos");
                         }

@@ -12,36 +12,27 @@ import android.widget.Toast;
 import com.example.peliculas_api.entities.Index;
 import com.example.peliculas_api.entities.Peliculas;
 import com.example.peliculas_api.presenter.LstPeliculasPresenter;
-import com.example.peliculas_api.utils.ApiInterface;
 import com.example.peliculas_api.view.LstPeliculasContract;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasContract.View {
 
-
-
-    private LstPeliculasPresenter lstPeliculasPresenter;
-    private TextView nombre;
-    private TextView tituloOriginal;
-    private TextView director;
-    private TextView pais;
-    private TextView ano;
-    private TextView duracion;
-    private TextView genero;
-    private TextView calificacion;
-    private TextView reparto;
-    private TextView productora;
-    private TextView trailer;
-    ImageView flecha;
-    private Integer id;
+   private LstPeliculasPresenter lstPeliculasPresenter;
+   private TextView nombre;
+   private TextView tituloOriginal;
+   private TextView director;
+   private TextView pais;
+   private TextView ano;
+   private TextView duracion;
+   private TextView genero;
+   private TextView calificacion;
+   private TextView reparto;
+   private TextView trailer;
+   private  TextView productora;
+   ImageView flecha;
+   private Integer id;
 
 
     @Override
@@ -64,7 +55,9 @@ public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasCont
         });
     }
 
-    public void initComponents(){
+
+    private void initComponents(){
+        flecha = findViewById(R.id.idFlechalstPelis);
         nombre = findViewById(R.id.idTitulo);
         tituloOriginal = findViewById(R.id.idTituloOriginal);
         director = findViewById(R.id.idDireccion);
@@ -76,7 +69,6 @@ public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasCont
         reparto = findViewById(R.id.idReparto);
         productora = findViewById(R.id.idProductora);
         trailer = findViewById(R.id.idTrailer);
-
     }
 
     public  void initPresenter(){
@@ -89,30 +81,29 @@ public class Ficha_tecnica extends AppCompatActivity implements LstPeliculasCont
 
     @Override
     public void successLstPeliculas(ArrayList<Index> lstIndex) {
-        for (Peliculas peliculas: lstIndex.get(0).getPeliculas()) {
-            Bundle miBundle = this.getIntent().getExtras();
-            if(miBundle!=null) {
-                id = miBundle.getInt("idPeli");
-                if (id.equals(peliculas.getId_pelicula())) {
-                    nombre.setText(peliculas.getNombre());
-                    tituloOriginal.setText(peliculas.getNombre());
-                    director.setText(peliculas.getDirector());
-                    pais.setText(peliculas.getPais());
-                   // ano.setText(peliculas.getAno());
-                    duracion.setText(peliculas.getDuracion());
-                    genero.setText(peliculas.getGenero());
-                    calificacion.setText(peliculas.getClasificacion());
-                    reparto.setText(peliculas.getInterpretes());
-                    productora.setText(peliculas.getDistribuidora());
-                    trailer.setText(peliculas.getTrailer());
-                }
-            }
-        }
-
+              for (Peliculas peliculas: lstIndex.get(0).getPeliculasFicha()){
+                  Bundle miBundle = this.getIntent().getExtras();
+                  if(miBundle!=null){
+                      id = miBundle.getInt("idPeli");
+                      if (id.equals(peliculas.getId_pelicula())){
+                          nombre.setText(peliculas.getNombre());
+                          tituloOriginal.setText(peliculas.getNombre());
+                          director.setText(peliculas.getDirector());
+                          pais.setText(peliculas.getPais());
+                         // ano.setText(peliculas.getAno());
+                          duracion.setText(peliculas.getDuracion());
+                          genero.setText(peliculas.getGenero());
+                          reparto.setText(peliculas.getInterpretes());
+                          productora.setText(peliculas.getDistribuidora());
+                          trailer.setText(peliculas.getTrailer());
+                          calificacion.setText(peliculas.getClasificacion());
+                      }
+                  }
+              }
     }
 
     @Override
     public void failureLstPeliculas(String err) {
-        Toast.makeText(this,err,Toast.LENGTH_LONG).show();
+        Toast.makeText(this,err, Toast.LENGTH_LONG).show();
     }
 }

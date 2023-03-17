@@ -27,7 +27,7 @@ public class Index {
         this.peliculasdrama = peliculasdrama;
     }
 
-    @SerializedName("peliculasAccion")
+    @SerializedName("peliculasAcion")
     private ArrayList<Peliculas> peliculasaccion;
 
     public ArrayList<Peliculas> getPeliculasAccion() {
@@ -47,5 +47,16 @@ public class Index {
 
     public void setPeliculasMasvotadas(ArrayList<Peliculas> peliculasMasvotadas) {
         this.peliculasMasvotadas = peliculasMasvotadas;
+    }
+
+    @SerializedName("fichatecnica")
+    private ArrayList<Peliculas> peliculasFicha;
+
+    public ArrayList<Peliculas> getPeliculasFicha() {
+        return peliculasFicha;
+    }
+
+    public void setPeliculasFicha(ArrayList<Peliculas> peliculasFicha) {
+        this.peliculasFicha = peliculasFicha;
     }
 }
